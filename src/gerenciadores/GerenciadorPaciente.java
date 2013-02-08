@@ -14,8 +14,9 @@ public class GerenciadorPaciente {
 		pacientes = new ArrayList<Paciente>();
 	}
 	
+	//Os metodos desta classe ainda serao trabalhados. Foram feitos apenas para ajudar nos testes de funcionario
 	public void addPaciente(Paciente p){
-		//falta colocar a validacao para saber se pessoa ja existe em funcionario
+		//falta colocar as validacoes
 		pacientes.add(p);
 	}
 	

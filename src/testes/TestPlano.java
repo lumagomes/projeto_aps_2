@@ -94,6 +94,30 @@ public class TestPlano {
 	}
 	
 	@Test
+	public void editarPlanoParaCamposNulo(){
+		Plano p = new Plano("", 0, "");
+		Assert.assertFalse(clinica.editarPlano(plano, p));
+	}
+	
+	@Test
+	public void editarPlanoParaValorNegativo(){
+		Plano p = new Plano("Familia", -1, "123");
+		Assert.assertFalse(clinica.editarPlano(plano, p));
+	}
+	
+	@Test(expected = Excecao.class)
+	public void editarPlanoParaCodigoAcimaDoLimite(){
+		Plano p = new Plano("Familia", 50.0, "123456789");
+		clinica.editarPlano(plano, p);
+	}
+	
+	@Test(expected = Excecao.class)
+	public void editarPlanoParaCodigoInválido(){
+		Plano p = new Plano("Familia", 40.0, "qq");
+		clinica.editarPlano(plano, p);
+	}
+	
+	@Test
 	public void removerPlano(){
 		Assert.assertTrue(clinica.removerPlano(plano));
 	}
